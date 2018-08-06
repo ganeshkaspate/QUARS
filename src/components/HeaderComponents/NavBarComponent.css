@@ -1,0 +1,23 @@
+.logo {
+    height: 25px;
+}
+.navbar-padding {
+    padding: 0px;
+}
+.navbar-default {
+    background-color: white;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: 0;
+}
+.lineposition {
+    height: 25px;
+    display: inline-block;
+    margin-left: 15px;
+}
+.navbar-brand > img {
+    display: inline-block;
+}

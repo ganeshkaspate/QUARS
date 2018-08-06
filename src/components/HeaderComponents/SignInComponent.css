@@ -1,0 +1,10 @@
+.signInLabel {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: #f1f1f1;
+    justify-content: center;
+}
+#signIn {
+    text-align: center;
+}
