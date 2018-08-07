@@ -1,10 +1,10 @@
 import React from 'react';
 import './SignInComponent.css';
 
-const SignInComponent = function () {
+const SignInComponent = function (props) {
     return (
         <div className="signInLabel">
-            <span> <b>Sign In To </b> </span>
+          { (!props.hasUserLogIn) && <span> <b>Sign In To </b> </span> }
         </div>
     )
 }

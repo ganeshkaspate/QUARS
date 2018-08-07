@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import MainReducer from './MainReducer';
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  tokenDetails : MainReducer
 });
 
 export default rootReducer;
