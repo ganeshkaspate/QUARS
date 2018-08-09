@@ -8,6 +8,8 @@ import promise from 'redux-promise';
 import thunk from 'redux-thunk'
 import reducers from './reducers';
 import App  from './components/HeaderComponents/NavBarComponent';
+import LoginComponent from './components/LoginComponent/LoginComponent';
+import CreateJob from './components/MainCreateJob/MainCreateJobComponent';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -16,9 +18,11 @@ const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
        <Router history={history} >
-      <div>
+      <div className="main-container">
+         <App/>
         <Switch>
-          <Route path="/" component={App} />
+          <Route path="/createJob" component={CreateJob} />
+          <Route path="/" component={LoginComponent} />
         </Switch>
       </div>
     </Router>

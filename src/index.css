@@ -1,4 +1,15 @@
-body {
-  margin: 0px;
+html, body {
   font-family: sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+}
+.main-container {
+  height: 100%;
+}
+.row {
+  height: 100%;
 }

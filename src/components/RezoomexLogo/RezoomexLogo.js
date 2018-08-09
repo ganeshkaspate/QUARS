@@ -4,8 +4,8 @@ import './RezoomexLogo.css';
 
 const RezoomexLogo =  function() {
     return (
-        <div id="rezoomexlogo" >
-            {/*<img src={rexlogo} alt="rexlogo" className="rex-logo img-responsive"/>*/}
+        <div id="rezoomexlogo" className="rex-logo-wrapper">            
+            <img src={rexlogo} alt="rexlogo" className="img-responsive rex-logo"/>
         </div>
     )
 }

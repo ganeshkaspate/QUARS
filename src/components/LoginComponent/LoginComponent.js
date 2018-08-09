@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { fetchToken } from '../../actions/Actions';
 import ErrorComponent from '../../components/LoginFailed/LoginError';
 import { withRouter } from "react-router-dom";
-import history from '../../history';
 
 
 class LoginComponent extends React.Component {
@@ -27,21 +26,21 @@ class LoginComponent extends React.Component {
             "password": this.state.password
         }
         this.props.fetchToken(bodyJson);
-        
     }
 
     render() {
         return (
-            <div className="container">
+            <div className="container-fluid login-container">
                 <div className="row">
-                    <div className="col-xs-12">
-                        <div className="form-container col-xs-offset-4 col-xs-4">
+                    <div className="col-xs-offset-4 col-xs-4">
+                        {/*container to aling form in middle of screen*/}
+                        <div className="form-container"> 
                             <div className="app-logo">
                                 <img src={app} alt="text" />
                                 <p className="app-name">Quick Assessment and Ranking System </p>
                             </div>
                             <div className="login-form">
-                                {this.props.userDetails && <ErrorComponent />}
+                                {this.props.error && <ErrorComponent />}
                                 <form className="form-horizontal" id="loginForm">
                                     <div className="form-group inner-addon left-addon" id="username-div">
                                         <i className="glyphicon glyphicon-user"></i>
@@ -75,8 +74,12 @@ class LoginComponent extends React.Component {
                                     </div>
                                 </form>
                             </div>
+
                         </div>
                     </div>
+                     <div className="col-xs-4 rex-logo-container">
+                           { !this.props.hasUserLogIn &&   <RezoomexLogo /> }
+                     </div>
                 </div>
             </div>
         );
@@ -89,4 +92,11 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(null, mapDispatchToProps)(LoginComponent);
+function mapStateToProps(state) {
+    return {
+        hasUserLogIn: state.tokenDetails.hasUserLogIn,
+        error: state.tokenDetails.error
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);
