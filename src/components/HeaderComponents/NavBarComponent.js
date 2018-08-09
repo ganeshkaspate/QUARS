@@ -27,8 +27,7 @@ class NavBarComponent extends React.Component {
                         </div>
                     </div>
                 </nav>
-                <SignInComponent hasUserLogIn={this.props.hasUserLogIn} />
-                <LoginComponent userDetails={this.props.error} />
+                <SignInComponent hasUserLogIn={this.props.hasUserLogIn} />                 
             </div>
         );
     }

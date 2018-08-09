@@ -1,6 +1,8 @@
 import { generateToken } from '../APIs/login';
 import HttpStatus from 'http-status-codes';
 import { LOGIN_FAILED, LOGIN_SUCCESS} from '../constants/AppConstants';
+import history from '../history';
+
 
 export function fetchToken(bodyjson) {
     return (dispatch) => {
@@ -19,7 +21,7 @@ export function getLoginDetails(dispatch, bodyjson) {
 }
 
 export function sendToken(data) {
-    console.log(data);
+    history.push('/createjob');
     return {
         type: LOGIN_SUCCESS,
         data: data,
