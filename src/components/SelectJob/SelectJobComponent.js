@@ -11,8 +11,12 @@ class SelectJobComponent extends React.Component {
         this.state = {
             company: '',
             Technology: '',
-            showModal: false
+            showModal: false,
         }
+    }
+
+    onChange = ({ target: { name, value } }) => {
+        this.setState({ [name]: value });
     }
 
     createJob(event) {
@@ -23,9 +27,10 @@ class SelectJobComponent extends React.Component {
             });
     }
 
-
-
     render() {
+
+        const { Technology, company } = this.state;
+        const enabled = (!!Technology && Technology.length > 0) && (!!company && company.length > 0)
 
         const rowStyle = {
             margin: '0px'
@@ -38,10 +43,8 @@ class SelectJobComponent extends React.Component {
         }
 
         const or = {
-            padding : '10px'
+            padding: '10px'
         }
-
-
 
         let lgClose = () => this.setState({ showModal: false });
         return (
@@ -56,7 +59,7 @@ class SelectJobComponent extends React.Component {
                             <div className="col-xs-4">
                                 <div className="form-group col-xs-12">
                                     <label className="control-label">company/project</label>
-                                    <select id="company" className="form-control" onChange={(event, newValue) => this.setState({ company: event.target.value })}>
+                                    <select id="company" name="company" className="form-control" onChange={this.onChange}>
                                         <option disabled selected value>None Selected</option>
                                         <option>Synerzip</option>
                                         <option>Avalara Solutions</option>
@@ -69,22 +72,23 @@ class SelectJobComponent extends React.Component {
                             <div className="col-xs-4">
                                 <div className="form-group  col-xs-12">
                                     <label>Select Technology</label>
-                                    <select id="Technology" className="form-control" onChange={(event, newValue) => this.setState({ Technology: event.target.value })}>
-                                        <option>Synerzip</option>
-                                        <option>Avalara Solutions</option>
-                                        <option>Tech Mahindra</option>
-                                        <option>Amdocs</option>
-                                        <option>Symantec</option>
+                                    <select id="Technology" name="Technology" className="form-control" onChange={this.onChange}>
+                                        <option disabled selected value>None Selected</option>
+                                        <option>Java</option>
+                                        <option>Angular Js</option>
+                                        <option>Javascript</option>
+                                        <option>Android</option>
+                                        <option>Mongo DB</option>
                                     </select>
                                 </div>
                             </div>
                             <div className="col-xs-4">
                                 <div className="form-group col-xs-12" style={jobUpload}>
                                     <div className="row">
-                                        <label>Job Description</label>
-                                        <button type="button" className="btn jd-button" onClick={(event) => this.createJob(event)}>Add/Paste JD</button>
+                                        <label style={or}>Job Description</label>
+                                        <button className={`btn ${enabled ? "add-btn" : "jd-button"} `} disabled={!enabled} onClick={(event) => this.createJob(event)}>Add/Paste JD</button>
                                         <span style={or}>Or</span>
-                                        <button type="button" className="btn jd-button">Upload Jd File</button>
+                                        <button className={`btn ${enabled ? "upload-btn" : "jd-button"} `} disabled={!enabled}>Upload JD File</button>
                                     </div>
                                 </div>
                             </div>
