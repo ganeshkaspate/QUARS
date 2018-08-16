@@ -22,3 +22,6 @@
      border-radius: 0px;
     background-color: #4986E7;
 }
+.create-job-container {
+    overflow: hidden;
+}

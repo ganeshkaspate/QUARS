@@ -21,6 +21,7 @@ class LoginComponent extends React.Component {
     }
 
     handleClick(event) {
+        event.preventDefault();
         var bodyJson = {
             "username": this.state.UserName,
             "password": this.state.password
