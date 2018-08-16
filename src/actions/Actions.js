@@ -1,6 +1,6 @@
 import { generateToken } from '../APIs/login';
 import HttpStatus from 'http-status-codes';
-import { LOGIN_FAILED, LOGIN_SUCCESS} from '../constants/AppConstants';
+import { LOGIN_FAILED, LOGIN_SUCCESS } from '../constants/AppConstants';
 import history from '../history';
 
 

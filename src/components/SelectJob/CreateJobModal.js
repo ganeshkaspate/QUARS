@@ -14,7 +14,7 @@ class CreateJobModal extends React.Component {
         this.state = {
             show: props.show,
             jdName: '',
-            jobDescription: ''
+            jobDescription: '',
             
         };
     }
