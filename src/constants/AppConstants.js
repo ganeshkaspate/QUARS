@@ -1,3 +1,6 @@
 export const LOGIN_PATH = '/login';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
+export const CREATE_JOB_PATH = '/createjob';
+export const FETCHING_DATA_FAILED = 'FETCHING_DATA_FAILED';
+export const FETCHING_JOBDESCRIPTION_SUCCESS='FETCHING_JOBDESCRIPTION_SUCCESS';
