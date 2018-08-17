@@ -13,10 +13,9 @@
     margin-bottom: 0px;
     border: 0;
 }
-.lineposition {
-    height: 25px;
-    display: inline-block;
-    margin-left: 15px;
+.line-position {
+    border-right: 1px solid #999;
+    padding: 0px 10px 5px 0px;
 }
 .navbar-brand > img {
     display: inline-block;
