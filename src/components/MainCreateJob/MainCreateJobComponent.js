@@ -4,8 +4,6 @@ import rexAssistant from '../../images/robo.png';
 import SelectJob from '../SelectJob/SelectJobComponent';
 
 export default class MainCreateJobComponent extends React.Component {
-
-
     constructor(props) {
         super(props);
         this.state = {

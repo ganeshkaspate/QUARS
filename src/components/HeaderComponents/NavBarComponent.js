@@ -3,8 +3,6 @@ import logo from '../../images/logo.png';
 import line from '../../images/line.png';
 import './NavBarComponent.css';
 import SignInComponent from './SignInComponent';
-import LoginComponent from '../LoginComponent/LoginComponent';
-import RezoomexLogo from '../RezoomexLogo/RezoomexLogo';
 import JobNav from '../CreateJob/CreateJobNav';
 import Notification from '../Notification/Notification';
 import {connect} from 'react-redux';
@@ -18,11 +16,12 @@ class NavBarComponent extends React.Component {
                         <div className="navbar-header col-xs-12">
                             <div className="row">
                                 <div className="navbar-brand">
-                                    <img src={logo} alt="Dispute Bills" className="logo" />
-                                    <img id="lineId" src={line} alt="lineDivide" className="lineposition" />
+                                    <div className="line-position">
+                                        <img src={logo} alt="Dispute Bills" className="logo" />
+                                    </div>
                                 </div>
                                 {this.props.hasUserLogIn && <JobNav />}
-                                {this.props.hasUserLogIn && <Notification />}
+                                {true && <Notification />}
                             </div>
                         </div>
                     </div>
