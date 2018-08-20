@@ -1,6 +1,7 @@
 import { generateToken } from '../APIs/login';
 import HttpStatus from 'http-status-codes';
 import { LOGIN_FAILED, LOGIN_SUCCESS } from '../constants/AppConstants';
+import {  fetchUserJd } from './GetUserJd';
 import history from '../history';
 
 
@@ -21,7 +22,6 @@ export function getLoginDetails(dispatch, bodyjson) {
 }
 
 export function sendToken(data) {
-    history.push('/createjob');
     return {
         type: LOGIN_SUCCESS,
         data: data,

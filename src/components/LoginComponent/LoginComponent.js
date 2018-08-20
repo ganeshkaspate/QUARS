@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { fetchToken } from '../../actions/Actions';
 import ErrorComponent from '../../components/LoginFailed/LoginError';
 import { withRouter } from "react-router-dom";
+import {  fetchUserJd } from '../../actions/GetUserJd';
 
 
 class LoginComponent extends React.Component {
@@ -29,13 +30,22 @@ class LoginComponent extends React.Component {
         this.props.fetchToken(bodyJson);
     }
 
+    componentWillReceiveProps(newProps) {
+        console.log(newProps.token);
+        if(newProps.token) {
+            this.props.fetchUserJd(newProps.token);
+        }
+    }
+
+    // history.push('/createjob');
+
     render() {
         return (
             <div className="container-fluid login-container">
                 <div className="row">
                     <div className="col-xs-offset-4 col-xs-4">
                         {/*container to aling form in middle of screen*/}
-                        <div className="form-container"> 
+                        <div className="form-container">
                             <div className="app-logo">
                                 <img src={app} alt="text" />
                                 <p className="app-name">Quick Assessment and Ranking System </p>
@@ -78,9 +88,9 @@ class LoginComponent extends React.Component {
 
                         </div>
                     </div>
-                     <div className="col-xs-4 rex-logo-container">
-                           { !this.props.hasUserLogIn &&   <RezoomexLogo /> }
-                     </div>
+                    <div className="col-xs-4 rex-logo-container">
+                        {!this.props.hasUserLogIn && <RezoomexLogo />}
+                    </div>
                 </div>
             </div>
         );
@@ -90,13 +100,15 @@ class LoginComponent extends React.Component {
 function mapDispatchToProps(dispatch) {
     return {
         fetchToken: (bodyJson) => dispatch(fetchToken(bodyJson)),
+        fetchUserJd: (token) => dispatch(fetchUserJd(token))
     }
 }
 
 function mapStateToProps(state) {
     return {
         hasUserLogIn: state.tokenDetails.hasUserLogIn,
-        error: state.tokenDetails.error
+        error: state.tokenDetails.error,
+        token : state.tokenDetails.response.authToken,
     }
 }
 

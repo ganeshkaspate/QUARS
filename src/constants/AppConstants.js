@@ -4,3 +4,7 @@ export const LOGIN_FAILED = 'LOGIN_FAILED';
 export const CREATE_JOB_PATH = '/createjob';
 export const FETCHING_DATA_FAILED = 'FETCHING_DATA_FAILED';
 export const FETCHING_JOBDESCRIPTION_SUCCESS='FETCHING_JOBDESCRIPTION_SUCCESS';
+export const GET_USER_JD = '/documents/jobDescription/undefined';
+export const FETCHING_JOBS ='FETCHING_JOBS';
+export const SIGN_OUT_SUCCESS = 'SIGN_OUT_SUCCESS';
+export const SIGN_OUT_URL = '/logout';

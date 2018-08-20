@@ -9,6 +9,7 @@ html, body {
 }
 .main-container {
   height: 100%;
+  overflow: hidden;
 }
 .row {
   height: 100%;

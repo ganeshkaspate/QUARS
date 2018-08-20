@@ -1,7 +1,7 @@
 import HttpStatus from 'http-status-codes';
 import history from '../history';
 import { createjob  } from '../APIs/createJob';
-import { FETCHING_JOBDESCRIPTION_SUCCESS, FETCHING_DATA_FAILED} from '../constants/AppConstants';
+import { FETCHING_JOBDESCRIPTION_SUCCESS, FETCHING_DATA_FAILED, FETCHING_JOBS} from '../constants/AppConstants';
 
 export function createJob(bodyjson) {
     return (dispatch) => {

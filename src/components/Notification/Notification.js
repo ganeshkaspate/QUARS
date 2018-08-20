@@ -1,8 +1,17 @@
 import React from 'react';
 import './Notification.css';
-import {connect} from "react-redux";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { processLogOut } from '../../actions/LogOut';
 
 class Notification extends React.Component {
+
+
+    logout(event) {
+        event.preventDefault();
+        this.props.processLogOut(this.props.token);
+    }
+
     render() {
         return (
             <div className="notification pull-right" id="notificationDiv">
@@ -14,13 +23,11 @@ class Notification extends React.Component {
                         </span>
                     </div>
                     <div className="col-xs-6 user-name-conatiner">
-                            <i className="glyphicon user-icon glyphicon-user"></i>
-                            <span className="user-name">{this.props.userName}</span>
+                        <i className="glyphicon user-icon glyphicon-user"></i>
+                        <span className="user-name">{this.props.userName}</span>
                     </div>
                     <div className="col-xs-3">
-                        <a className='logout-link'>
-                            Logout
-                        </a>
+                        <Link to="" className='logout-link' onClick={(event) => this.logout(event)} >Logout</Link>
                     </div>
                 </div>
             </div>
@@ -30,10 +37,20 @@ class Notification extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        userName : (state.userName) ? state.userName : 'gaurav_kr',
+        userName: (state.userName) ? state.userName : 'admin',
         hasUnreadMessage: (state.hasUnreadMessage) ? state.hasUnreadMessage : true,
-        messageCount: (state.messageCount) ? state.messageCount : 2
+        messageCount: (state.messageCount) ? state.messageCount : 2,
+        token: state.tokenDetails.response.authToken
     }
 }
 
-export default connect(mapStateToProps) (Notification);
+function mapDispatchToProps(dispatch) {
+    return {
+        processLogOut: (token) => dispatch(processLogOut(token))
+    }
+}
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Notification);

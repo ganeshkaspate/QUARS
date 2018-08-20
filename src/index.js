@@ -10,6 +10,7 @@ import reducers from './reducers';
 import App  from './components/HeaderComponents/NavBarComponent';
 import LoginComponent from './components/LoginComponent/LoginComponent';
 import CreateJob from './components/MainCreateJob/MainCreateJobComponent';
+import userJobs from './components/ShowUserJob/ShowUserJob';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -20,7 +21,8 @@ ReactDOM.render(
        <Router history={history} >
       <div className="main-container">
          <App/>
-        <Switch>
+         <Switch>
+           <Route path="/userJobs" component={userJobs} />
           <Route path="/createJob" component={CreateJob} />
           <Route path="/" component={LoginComponent} />
         </Switch>

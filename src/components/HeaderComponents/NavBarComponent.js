@@ -20,8 +20,8 @@ class NavBarComponent extends React.Component {
                                         <img src={logo} alt="Dispute Bills" className="logo" />
                                     </div>
                                 </div>
-                                {this.props.hasUserLogIn && <JobNav />}
-                                {true && <Notification />}
+                                {this.props.hasUserLogIn && <JobNav  />}
+                                {this.props.hasUserLogIn && <Notification />}
                             </div>
                         </div>
                     </div>
@@ -40,4 +40,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps) (NavBarComponent);
+export default connect(mapStateToProps, null) (NavBarComponent);

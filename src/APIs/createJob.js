@@ -5,7 +5,6 @@ import { CREATE_JOB_PATH } from '../constants/AppConstants';
 export const createjob = (bodyJson) =>
     axios.post(
         CREATE_JOB_PATH,
-        bodyJson
     ).then(data => {
             if(data.status === HttpStatus.OK){
                 return {
